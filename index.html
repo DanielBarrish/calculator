@@ -19,11 +19,11 @@
             <button class="row1" id="7">7</button>
             <button class="row1" id="8">8</button>
             <button class="row1" id="9">9</button>
-            <button class="row1" id="divide">/</button> <br>
+            <button class="row1" id="divide">÷</button> <br>
             <button class="row2" id="4">4</button>
             <button class="row2" id="5">5</button>
             <button class="row2" id="6">6</button>
-            <button class="row2" id="multiply">*</button> <br>
+            <button class="row2" id="multiply">x</button> <br>
             <button class="row3" id="1">1</button>
             <button class="row3" id="2">2</button>
             <button class="row3" id="3">3</button>
@@ -54,12 +54,20 @@
             margin: 6px;
             font-size: 40px;
             font-weight: bold;
-
-
+            border-radius: 10px;
+            background-color: lightblue;
+            border: 0px;
         }
 
         button:focus {
-            box-shadow: 10px;
+            outline: 0px;
+        }
+        button:hover {
+            background-color: lightblue;
+            transform: scale(1.1);
+        }
+        button:active {
+            transform: scale(0.9);
         }
 
         input {
@@ -71,6 +79,14 @@
             font-size: 60px;
             padding: 30px;
             font-weight: bold;
+            border-radius: 20px;
+            border: 0px;
+            background-color: darkblue;
+            color: white;
+
+        }
+        input:focus {
+            outline: 0px;
         }
     </style>
 
@@ -252,15 +268,20 @@
 
         let clearButton = document.getElementById("clear");
         clearButton.addEventListener('click', () => {
+            number1 = "";
+            number2 = "";
+            result = 0;
+            updateInput("...");
             
         });
 
         let equalsButton = document.getElementById("equals");
         equalsButton.addEventListener('click', () => {
             result = calculate(operation, number1, number2);
+            result = Math.round(100000 * result) / 100000;
             firstNumberPhase = true;
             updateInput(result);  
-            number1 = "";
+            number1 = result + "";
             number2 = "";          
         });
 
