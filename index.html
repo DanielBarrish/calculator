@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div id="calculator">
+
+        <div id="input">
+            <br>
+            <input type="text" id="box" value="...">
+        </div>
+
+        <div id="buttons">
+            <button class="row1" id="7">7</button>
+            <button class="row1" id="8">8</button>
+            <button class="row1" id="9">9</button>
+            <button class="row1" id="divide">/</button> <br>
+            <button class="row2" id="4">4</button>
+            <button class="row2" id="5">5</button>
+            <button class="row2" id="6">6</button>
+            <button class="row2" id="multiply">*</button> <br>
+            <button class="row3" id="1">1</button>
+            <button class="row3" id="2">2</button>
+            <button class="row3" id="3">3</button>
+            <button class="row3" id="minus">-</button> <br>
+            <button class="row4" id="0">0</button>
+            <button class="row4" id="clear">Clear</button>
+            <button class="row4" id="equals">=</button>
+            <button class="row4" id="plus">+</button>
+        </div>
+    </div>
+
+    <style>
+
+        h1 {
+            font-size: 80px;
+            text-align: center;
+        }
+
+        #calculator {
+            display: grid;
+            justify-content: center;
+            
+        }
+
+        button {
+            width: 150px;
+            height: 90px;
+            margin: 6px;
+            font-size: 40px;
+            font-weight: bold;
+
+
+        }
+
+        button:focus {
+            box-shadow: 10px;
+        }
+
+        input {
+            height: 90px;
+            width: 580px;
+            margin: 10px;
+            border-color: black;
+            text-align: right;
+            font-size: 60px;
+            padding: 30px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        let number1 = "";
+        let number2 = "";
+        let operation = "";
+        let result = 0;
+
+        firstNumberPhase = true;
+
+        let zeroButton = document.getElementById("0");
+        zeroButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "0";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "0";
+                updateInput(number2);
+            }
+            
+        });
+
+        let oneButton = document.getElementById("1");
+        oneButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "1";
+                
+                updateInput(number1);
+            } else {
+                number2 = number2+ "1";
+                updateInput(number2);
+            }
+            
+        });
+
+        let twoButton = document.getElementById("2");
+        twoButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "2";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "2";
+                updateInput(number2);
+            }
+            
+        });
+
+        let threeButton = document.getElementById("3");
+        threeButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "3";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "3";
+                updateInput(number2);
+            }
+            
+        });
+
+        let fourButton = document.getElementById("4");
+        fourButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "4";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "4";
+                updateInput(number2);
+            }
+            
+        });
+
+        let fiveButton = document.getElementById("5");
+        fiveButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "5";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "5";
+                updateInput(number2);
+            }
+            
+            
+        });
+
+        let sixButton = document.getElementById("6");
+        sixButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "6";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "6";
+                updateInput(number2);
+            }
+            
+        });
+
+        let sevenButton = document.getElementById("7");
+        sevenButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "7";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "7";
+                updateInput(number2);
+            }
+            
+        });
+
+        let eightButton = document.getElementById("8");
+        eightButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "8";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "8";
+                updateInput(number2);
+            }
+            
+            
+        });
+
+        let nineButton = document.getElementById("9");
+        nineButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                number1 = number1 + "9";
+                updateInput(number1);
+            } else {
+                number2 = number2+ "9";
+                updateInput(number2);
+            }
+            
+            
+        });
+
+        let addButton = document.getElementById("plus");
+        addButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                operation = "add";
+                firstNumberPhase = false;
+                updateInput("+");
+            } else {
+                alert("Press 'equals' to get the result.");
+            }            
+        });
+
+        let minusButton = document.getElementById("minus");
+        minusButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                operation = "minus";
+                firstNumberPhase = false;
+                updateInput("-");
+            } else {
+                alert("Press 'equals' to get the result.");
+            }             
+        });
+
+        let divideButton = document.getElementById("divide");
+        divideButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                operation = "divide";
+                firstNumberPhase = false;
+                updateInput("÷");
+            } else {
+                alert("Press 'equals' to get the result.");
+            }             
+        });
+
+        let multiplyButton = document.getElementById("multiply");
+        multiplyButton.addEventListener('click', () => {
+            if (firstNumberPhase) {
+                operation = "multiply";
+                firstNumberPhase = false;
+                updateInput("x");
+            } else {
+                alert("Press 'equals' to get the result.");
+            }             
+        });
+
+        let clearButton = document.getElementById("clear");
+        clearButton.addEventListener('click', () => {
+            
+        });
+
+        let equalsButton = document.getElementById("equals");
+        equalsButton.addEventListener('click', () => {
+            result = calculate(operation, number1, number2);
+            firstNumberPhase = true;
+            updateInput(result);  
+            number1 = "";
+            number2 = "";          
+        });
+
+        function updateInput(str) {
+            console.log(str);
+            document.getElementById("box").value = str + "";
+        }
+
+        function calculate(op, num1, num2) {
+            int1 = parseInt(num1);
+            int2 = parseInt(num2);
+            if (op == "add") {
+                return int1 + int2;
+            }
+            if (op == "minus") {
+                return int1 - int2;
+            }
+            if (op == "divide") {
+                return int1 / int2;
+            }
+            if (op == "multiply") {
+                return int1 * int2;
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
